@@ -1,34 +1,34 @@
 # Text Analysis & Index Candidate Generator
 
-A Python-based Natural Language Processing (NLP) pipeline that analyzes text documents (such as book chapters), performs custom text cleaning, POS-tagged lemmatization, stop-word removal, frequency distribution analysis, visual plotting, and exports word occurrence data as candidate terms for indexing[cite: 1].
+A Python-based Natural Language Processing (NLP) pipeline that analyzes text documents (such as book chapters), performs custom text cleaning, POS-tagged lemmatization, stop-word removal, frequency distribution analysis, visual plotting, and exports word occurrence data as candidate terms for indexing.
 
 ---
 
 ## 📌 Features
 
 - **Text Processing & Cleaning**:
-  - Replaces hyphens, dashes, and slashes with spaces[cite: 1].
-  - Removes non-alphanumeric punctuation while retaining single apostrophes appropriately[cite: 1].
-  - Normalizes contractions and possessive markers (e.g., removing `'s`)[cite: 1].
-  - Converts text to lowercase and strips extraneous whitespace[cite: 1].
+  - Replaces hyphens, dashes, and slashes with spaces.
+  - Removes non-alphanumeric punctuation while retaining single apostrophes appropriately.
+  - Normalizes contractions and possessive markers (e.g., removing `'s`).
+  - Converts text to lowercase and strips extraneous whitespace.
 
 - **POS-Tagged Lemmatization**:
-  - Leverages NLTK's `word_tokenize` and `pos_tag` to determine parts of speech[cite: 1].
-  - Maps Treebank POS tags to WordNet POS tags (`NOUN`, `VERB`, `ADJ`, `ADV`) for context-aware lemmatization[cite: 1].
+  - Leverages NLTK's `word_tokenize` and `pos_tag` to determine parts of speech.
+  - Maps Treebank POS tags to WordNet POS tags (`NOUN`, `VERB`, `ADJ`, `ADV`) for context-aware lemmatization.
 
 - **Custom Stopword Filtering**:
-  - Uses an extensive custom stopword list to filter out common functional words, pronouns, auxiliary verbs, generic terms, and filler words[cite: 1].
+  - Uses an extensive custom stopword list to filter out common functional words, pronouns, auxiliary verbs, generic terms, and filler words.
 
 - **Word Frequency Analysis**:
-  - Computes exact word occurrences across cleaned chapter files[cite: 1].
-  - Sorts unique lemmatized terms alphabetically[cite: 1].
-  - Computes summary metrics such as the average word occurrence frequency per file[cite: 1].
+  - Computes exact word occurrences across cleaned chapter files.
+  - Sorts unique lemmatized terms alphabetically.
+  - Computes summary metrics such as the average word occurrence frequency per file.
 
 - **Visualizations**:
-  - Generates horizontal bar charts (`matplotlib`) displaying term occurrence counts[cite: 1].
+  - Generates horizontal bar charts (`matplotlib`) displaying term occurrence counts.
 
 - **Export & Output**:
-  - Saves term frequency outputs as `.txt` index candidates in the `WordLists/` directory for downstream book indexing or terminology analysis[cite: 1].
+  - Saves term frequency outputs as `.txt` index candidates in the `WordLists/` directory for downstream book indexing or terminology analysis.
 
 ---
 
@@ -48,9 +48,9 @@ A Python-based Natural Language Processing (NLP) pipeline that analyzes text doc
 
 - **Python 3.8+**
 - Python packages:
-  - `nltk`[cite: 1]
-  - `matplotlib`[cite: 1]
-  - `pandas`[cite: 1]
+  - `nltk`
+  - `matplotlib`
+  - `pandas`
 
 ---
 
@@ -77,7 +77,7 @@ A Python-based Natural Language Processing (NLP) pipeline that analyzes text doc
    ```
 
 4. **Download required NLTK resources**:
-   Uncomment lines 2–4 in `clean&sort.py` or run the following once in Python[cite: 1]:
+   Uncomment lines 2–4 in `clean&sort.py` or run the following once in Python:
    ```python
    import nltk
    nltk.download('punkt')
@@ -91,8 +91,8 @@ A Python-based Natural Language Processing (NLP) pipeline that analyzes text doc
 ## 📂 Input & Output Preparation
 
 1. **Input Directory (`Chapters/`)**:
-   - Place your input text files inside a folder named `Chapters/`[cite: 1].
-   - Ensure the input files are text documents encoded in UTF-8[cite: 1].
+   - Place your input text files inside a folder named `Chapters/`.
+   - Ensure the input files are text documents encoded in UTF-8.
 
 2. **Output Directory (`WordLists/`)**:
    - Check the folder named `WordLists/` when you have run the program to see the output.
@@ -108,11 +108,11 @@ python clean&sort.py
 ```
 
 ### Script Execution Workflow:
-1. Iterates through every text file inside `Chapters/`[cite: 1].
-2. Cleans, tokenizes, POS-tags, lemmatizes, and removes stopwords[cite: 1].
-3. Prints word frequencies and the mean word frequency to the console[cite: 1].
-4. Generates a horizontal bar chart displaying term occurrences[cite: 1].
-5. Exports candidate index terms to `WordLists/<FileName>Index-Candidates.txt` formatted as[cite: 1]:
+1. Iterates through every text file inside `Chapters/`.
+2. Cleans, tokenizes, POS-tags, lemmatizes, and removes stopwords.
+3. Prints word frequencies and the mean word frequency to the console.
+4. Generates a horizontal bar chart displaying term occurrences.
+5. Exports candidate index terms to `WordLists/<FileName>Index-Candidates.txt` formatted as:
    ```text
    term, count
    ...
@@ -123,8 +123,8 @@ python clean&sort.py
 
 ## ⚙️ Core Functions
 
-- **`get_wordnet_pos(treebank_tag)`**: Translates NLTK Penn Treebank POS tags into WordNet format (`ADJ`, `VERB`, `NOUN`, `ADV`) for context-aware lemmatization[cite: 1].
-- **`lemmatize(text)`**: Tokenizes text, performs POS tagging, and returns a lemmatized string[cite: 1].
-- **`clean(text)`**: Applies regular expressions to strip unnecessary punctuation and contractions, lowercases text, calls `lemmatize()`, and filters out stopwords[cite: 1].
-- **`sort(text)`**: Counts term frequencies via `collections.Counter`, computes average term frequency, inserts `"average"`, and sorts terms alphabetically[cite: 1].
-- **`plot(sorted_text, maximum)`**: Converts term counts to a `pandas.DataFrame` and renders a horizontal bar chart with `matplotlib`[cite: 1].
+- **`get_wordnet_pos(treebank_tag)`**: Translates NLTK Penn Treebank POS tags into WordNet format (`ADJ`, `VERB`, `NOUN`, `ADV`) for context-aware lemmatization.
+- **`lemmatize(text)`**: Tokenizes text, performs POS tagging, and returns a lemmatized string.
+- **`clean(text)`**: Applies regular expressions to strip unnecessary punctuation and contractions, lowercases text, calls `lemmatize()`, and filters out stopwords.
+- **`sort(text)`**: Counts term frequencies via `collections.Counter`, computes average term frequency, inserts `"average"`, and sorts terms alphabetically.
+- **`plot(sorted_text, maximum)`**: Converts term counts to a `pandas.DataFrame` and renders a horizontal bar chart with `matplotlib`      .
