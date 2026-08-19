@@ -77,5 +77,5 @@ for path in dir_path.iterdir():
         for key, value in sorted_text.items():
             output_text.append(", ".join([key, str(value)]))
 
-        with open(f"WordLists/{path.name[:-6]}Index-Candidates.txt", "w", encoding="utf-8-sig", errors="replace") as file2:
+        with open(f"WordLists/{path.name[:-4]}Index-Candidates.txt", "w", encoding="utf-8-sig", errors="replace") as file2:
             file2.writelines("\n".join(output_text))
