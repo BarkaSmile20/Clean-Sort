@@ -50,17 +50,6 @@ def sort(text):
     print(sorted_text)
     return sorted_text, maximum, mean
 
-def plot(sorted_text, maximum):
-    df = DataFrame(sorted_text.items(), columns=["Word", "Count"])
-    plt.barh(df["Word"], df["Count"])
-    plt.xlabel("Word")
-    plt.ylabel("Word Count")
-    plt.title("Word Occurrence in the Text")
-    plt.ylim(-0.5, 25.5)
-    plt.xlim(-0.5, maximum + 0.5)
-    plt.show()
-
-
 for path in dir_path.iterdir():
     if path.is_file():
         with open(path, "r", encoding='utf-8-sig', errors="replace") as file:
