@@ -23,9 +23,6 @@ A Python-based Natural Language Processing (NLP) pipeline that analyzes text doc
   - Sorts unique lemmatized terms and entities alphabetically.
   - Computes the average occurrence frequency per file.
 
-- **Visualizations**:
-  - Generates horizontal bar charts (`matplotlib` and `pandas`) displaying term occurrence counts.
-
 - **Export & Output**:
   - Saves term frequency outputs as `.txt` index candidates in the `WordLists/` directory for downstream book indexing or terminology analysis.
 
