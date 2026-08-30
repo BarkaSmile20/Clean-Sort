@@ -1,0 +1,3 @@
+hello, 1
+world, 1
+average, 1.0
