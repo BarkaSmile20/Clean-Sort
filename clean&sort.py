@@ -1,7 +1,5 @@
 import spacy
 import re
-import matplotlib.pyplot as plt
-from pandas import DataFrame
 from collections import Counter
 from pathlib import Path
 
@@ -46,7 +44,6 @@ def sort(text):
         maximum = max(counts.values())
     sorted_text = dict(sorted(counts.items()))
     mean = sum(sorted_text.values()) / len(sorted_text) if sorted_text else 0
-    sorted_text["average"] = mean
     print(sorted_text)
     return sorted_text, maximum, mean
 
@@ -56,7 +53,6 @@ for path in dir_path.iterdir():
             input_text = file.read()
         tokens = clean(input_text)
         sorted_text, maximum, mean = sort(tokens)
-        #plot(sorted_text, maximum)
         output_text = [f"{key}, {value}" for key, value in sorted_text.items()]
         output_text.append(f"average, {mean}")
         with open(f"WordLists/{path.name[:-6]}Index-Candidates.txt", "w", encoding="utf-8-sig", errors="replace") as file2:
